@@ -38,7 +38,6 @@ Install the project dependencies and start the PHP server:
 composer install
 php artisan config:cache
 php artisan serve
-
 ```
 
 ### Run the apis via curl
@@ -46,7 +45,7 @@ php artisan serve
 Get the Latest Currency List
 
 ```
-curl --location --request GET 'https://nestoapi.codesands.com/api/latest/{currency code}'
+curl --location --request GET 'https://127.0.0.1:8000/api/latest/{currency code}'
 
 Note: You can replace {currency code} from any currency code like USD, EUR, LKR, etc
 Example: curl --location --request GET 'https://nestoapi.codesands.com/api/latest/usd'
