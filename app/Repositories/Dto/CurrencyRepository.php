@@ -38,7 +38,7 @@ class CurrencyRepository implements CurrencyRepositoryInterface
             }
     }
 
-    public function latestCurrencyList($from)
+    public function latestCurrencyList($from="USD")
     {
         $currenciesObj= Currency::getRows();
         $newCurrencies=[];

@@ -24,5 +24,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['cors', 'json.response']], function () {
     Route::post('/convert', 'App\Http\Controllers\CurrencyController@currencyConvertor')->name('view.convert');
-    Route::get('/latest/{cur}', 'App\Http\Controllers\CurrencyController@latestCurrencyList')->name('view.latest');
+    Route::get('/latest/{from}', 'App\Http\Controllers\CurrencyController@latestCurrencyList')->name('view.latest');
 });

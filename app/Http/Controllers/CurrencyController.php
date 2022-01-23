@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+use App\Requests\CurrencyRequest;
 use App\Repositories\CurrencyRepositoryInterface;
-//
+use Illuminate\Http\Request;
 
 class CurrencyController extends Controller
 {
@@ -15,14 +15,14 @@ class CurrencyController extends Controller
         $this->currencyRepository = $CurrencyRepository; 
     }
 
-    public function currencyConvertor(Request $request)
+    public function currencyConvertor(CurrencyRequest $request)
     {
         return $this->currencyRepository->currencyConvertor($request->from,$request->to,$request->amount);
     }
 
-    public function latestCurrencyList($cur)
+    public function latestCurrencyList(Request $request)
     {
-        return $this->currencyRepository->latestCurrencyList($cur);
+        return $this->currencyRepository->latestCurrencyList($request->route('from'));
     }
 
 }
