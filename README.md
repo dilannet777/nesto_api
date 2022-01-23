@@ -43,40 +43,21 @@ php artisan serve
 
 ### Run the apis via curl
 
-Create User
-```
-curl --location --request POST 'http://127.0.0.1:8000/api/register' \
---form 'name="Dilan Withanachchi"' \
---form 'email="test@mailinator.com"' \
---form 'password="1qaz2wsx"' \
---form 'password_confirmation="1qaz2wsx"'
-```
-Login User
-```
-curl --location --request POST 'http://127.0.0.1:8000/api/login' \
---form 'email="test@mailinator.com"' \
---form 'password="1qaz2wsx"''
-```
+Get the Latest Currency List
 
-Active Vehicle List
 ```
-curl --location --request POST 'http://127.0.0.1:8000/api/vehicles?page_count=10' \
---header 'Authorization: Bearer 25|VDrX4eza53atcuSS4QJYEonYLFRdAvz2bhsIcL9w' \
---header 'Accept: application/json'
-```
+curl --location --request GET 'https://nestoapi.codesands.com/api/latest/{currency code}'
 
-Show Vehicle Log Count
-```
-curl --location --request POST 'http://127.0.0.1:8000/api/vehicle/logcount/82' \
---header 'Authorization: Bearer 25|VDrX4eza53atcuSS4QJYEonYLFRdAvz2bhsIcL9w' \
---header 'Accept: application/json' \
---form 'page_count="5"'
-```
+Note: You can replace {currency code} from any currency code like USD, EUR, LKR, etc
+Example: curl --location --request GET 'https://nestoapi.codesands.com/api/latest/usd'
 
-Show Vehicle Last Log Information
 ```
-curl --location --request GET 'http://127.0.0.1:8000/api/vehicle/lastlog/82' \
---header 'Authorization: Bearer 25|VDrX4eza53atcuSS4QJYEonYLFRdAvz2bhsIcL9w' \
---header 'Accept: application/json'
-```
+Convert monetary value form source currency to target currency.
 
+```
+curl --location --request POST 'http://127.0.0.1:8000/api/convert' \
+--form 'from="USD"' \
+--form 'to="LKR"' \
+--form 'amount="10"'
+
+```
