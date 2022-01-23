@@ -49,7 +49,6 @@ curl --location --request GET 'https://127.0.0.1:8000/api/latest/{currency code}
 
 Note: You can replace {currency code} from any currency code like USD, EUR, LKR, etc
 Example: curl --location --request GET 'https://nestoapi.codesands.com/api/latest/usd'
-
 ```
 Convert monetary value form source currency to target currency.
 
@@ -58,5 +57,4 @@ curl --location --request POST 'http://127.0.0.1:8000/api/convert' \
 --form 'from="USD"' \
 --form 'to="LKR"' \
 --form 'amount="10"'
-
 ```
