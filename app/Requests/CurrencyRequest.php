@@ -24,7 +24,7 @@ class CurrencyRequest extends ApiRequest
             case 'POST': {
                     $return['to'] = 'required|min:3|max:3';
                     $return['from'] = 'required|min:3|max:3';
-                    $return['amount'] = 'required|numeric';
+                    $return['amount'] = 'required|numeric|min:0|not_in:0';
                     return $return;
                 }
             case 'PUT':

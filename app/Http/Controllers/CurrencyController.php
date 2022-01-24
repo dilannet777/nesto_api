@@ -11,18 +11,21 @@ class CurrencyController extends Controller
     private $currencyRepository;
 
     public function __construct(CurrencyRepositoryInterface $CurrencyRepository)
-    {
+    { 
         $this->currencyRepository = $CurrencyRepository; 
     }
 
     public function currencyConvertor(CurrencyRequest $request)
     {
-        return $this->currencyRepository->currencyConvertor($request->from,$request->to,$request->amount);
+        $response=$this->currencyRepository->currencyConvertor($request->from,$request->to,$request->amount);
+        return  response($response,$response['success']?200:422);
+
     }
 
     public function latestCurrencyList(Request $request)
     {
-        return $this->currencyRepository->latestCurrencyList($request->route('from'));
+        $response=$this->currencyRepository->latestCurrencyList($request->route('from'));
+        return  response($response,$response['success']?200:422);
     }
 
 }

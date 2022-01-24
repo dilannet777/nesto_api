@@ -17,7 +17,9 @@ class CurrencyRepository implements CurrencyRepositoryInterface
     public function currencyConvertor($from,$to, $amount=0)
     {
             $currencyObj= Currency::getRows();
-
+            $from=strtoupper($from);
+            $to=strtoupper($to);
+          
 
             if (!empty($currencyObj['success'])){
 
